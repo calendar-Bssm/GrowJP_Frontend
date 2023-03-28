@@ -6,7 +6,6 @@ export const container = styled.div`
   background: url("/images/background/StartBG.jpg");
   background-size: 100vw 100vh;
   display: flex;
-  padding: 5%;
   flex-direction: column;
   justify-content: flex-end;
 `;
@@ -16,33 +15,15 @@ export const startBtn = styled.button`
   height: 20vh;
   background: url("/images/utils/startBtn.png");
   background-size: 30vw 20vh;
-  background-color: white;
   transition-timing-function: ease-out;
   transition-duration: 0.05s;
   border: none;
+  opacity: 0.5;
 
   :hover {
     transition-timing-function: ease-out;
     transition-duration: 0.01s;
     transform: scale(1.2);
-  }
-`;
-
-export const settingBtn = styled.button`
-  width: 30vw;
-  height: 20vw;
-  background: url("/images/utils/settingBtn.png");
-  background-size: 35vw 10vw;
-  background-position: center;
-  background-color: white;
-  transition-timing-function: ease-out;
-  transition-duration: 0.05s;
-  border: none;
-  background-repeat: no-repeat;
-
-  :hover {
-    transition-timing-function: ease-out;
-    transition-duration: 0.01s;
-    transform: scale(1.2);
+    opacity: 1;
   }
 `;
