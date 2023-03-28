@@ -2,13 +2,16 @@ import * as S from "./SettingStyle";
 import React, { useRef } from "react";
 
 export const Setting = () => {
-  let showSetting = useRef<any>(null);
-  let closeSetting = useRef<any>(null);
-  let playSound = useRef<any>(null);
-  let stopSound = useRef<any>(null);
-  let container = useRef<any>(null);
+  let showSetting = useRef<HTMLButtonElement | any>(null);
+  let closeSetting = useRef<HTMLButtonElement | any>(null);
+  let playSound = useRef<HTMLButtonElement | any>(null);
+  let stopSound = useRef<HTMLButtonElement | any>(null);
+  let container = useRef<HTMLDivElement | any>(null);
+  let showCredits = useRef<HTMLButtonElement | any>(null);
+  let closeCredits = useRef<HTMLButtonElement | any>(null);
+  let credits = useRef<HTMLDivElement | any>(null);
 
-  function muteMe(e: any) {
+  function muteMe(e: HTMLAudioElement) {
     e.muted = true;
     e.pause();
   }
@@ -28,12 +31,6 @@ export const Setting = () => {
 
   return (
     <>
-      <audio
-        src="/audios/backgroundAudio/BGaudio.mp3"
-        id="Audio"
-        loop
-        autoPlay
-      ></audio>
       <S.toggleBtn
         display={"flex"}
         ref={showSetting}
@@ -59,9 +56,7 @@ export const Setting = () => {
           onClick={() => {
             stopSound.current.style.display = "none";
             playSound.current.style.display = "flex";
-
             mutePage();
-            console.log("음소거됨");
           }}
           display={"flex"}
           ref={stopSound}
@@ -71,9 +66,7 @@ export const Setting = () => {
           onClick={() => {
             stopSound.current.style.display = "flex";
             playSound.current.style.display = "none";
-
             playPage();
-            console.log("음소거 해제됨");
           }}
           display={"none"}
           ref={playSound}
@@ -81,8 +74,38 @@ export const Setting = () => {
         ></S.settingBtn>
         <S.settingBtn
           display={"flex"}
+          background={"/images/utils/Credits.png"}
+          ref={showCredits}
+          onClick={() => {
+            showCredits.current.style.display = "none";
+            closeCredits.current.style.display = "flex";
+            credits.current.style.display = "flex";
+            playPage();
+          }}
+        ></S.settingBtn>
+        <S.settingBtn
+          display={"flex"}
           background={"/images/utils/saveData.png"}
         ></S.settingBtn>
+        <S.creditDesc ref={credits}>
+          <S.toggleBtn
+            display={"none"}
+            ref={closeCredits}
+            background={"/images/utils/xBtn.png"}
+            onClick={() => {
+              showCredits.current.style.display = "flex";
+              credits.current.style.display = "none";
+              closeCredits.current.style.display = "none";
+            }}
+          ></S.toggleBtn>
+          <h2 style={{ fontSize: "8vw", margin: "0" }}>Credits</h2>
+          <p style={{ fontSize: "4vw" }}>
+            Server & DataBase : 마현우
+            <br /> Design & Page : 김준경
+            <br /> Design : 이희성
+            <br />
+          </p>
+        </S.creditDesc>
       </S.setContainer>
     </>
   );

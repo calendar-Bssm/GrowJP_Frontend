@@ -41,6 +41,11 @@ export default class Mydocument extends Document {
       <Html lang="ko">
         <Head />
         <body>
+          <audio
+            src="/audios/backgroundAudio/BGaudio.mp3"
+            loop
+            autoPlay
+          ></audio>
           <Main />
           <NextScript />
         </body>

@@ -25,7 +25,7 @@ export const toggleBtn = styled.button<{ background: string; display: string }>`
   background-position: center;
   background-size: cover;
   transition-timing-function: ease-out;
-  transition-duration: 0.05s;
+  transition-duration: 0.15s;
   opacity: 0.5;
   border: 0;
   z-index: 2;
@@ -33,7 +33,7 @@ export const toggleBtn = styled.button<{ background: string; display: string }>`
 
   :hover {
     transition-timing-function: ease-out;
-    transition-duration: 0.01s;
+    transition-duration: 0.025s;
     transform: scale(1.2);
     opacity: 1;
   }
@@ -48,6 +48,7 @@ export const settingBtn = styled.button<{
   background: url(${(props) => props.background});
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   transition-timing-function: ease-out;
   transition-duration: 0.15s;
   opacity: 0.5;
@@ -64,5 +65,29 @@ export const settingBtn = styled.button<{
 
   :active {
     opacity: 0.7;
+  }
+`;
+
+export const creditDesc = styled.div`
+  position: absolute;
+  width: 75%;
+  height: 75%;
+  top: 12.5%;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  font-family: "Gaegu";
+  font-weight: 600;
+  z-index: 3;
+  overflow-y: scroll;
+  box-shadow: 3px 3px 3px 3px 5px orange;
+
+  background: url("/images/background/CreditBG.png");
+  background-size: 75vw 75vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  ::-webkit-scrollbar {
+    display: none;
   }
 `;

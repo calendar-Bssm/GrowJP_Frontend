@@ -6,8 +6,7 @@ export const container = styled.div`
   background: url("/images/background/StartBG.jpg");
   background-size: 100vw 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-end;
 `;
 
 export const startBtn = styled.button`
@@ -19,6 +18,7 @@ export const startBtn = styled.button`
   transition-duration: 0.05s;
   border: none;
   opacity: 0.5;
+  margin: 2.5%;
 
   :hover {
     transition-timing-function: ease-out;

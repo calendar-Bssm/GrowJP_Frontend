@@ -1,6 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap");
+
 body {
   margin: 0;
   overflow: hidden;
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: url("/images/background/MainBG.png");
+  background-size: 100vw 100vh;
 }

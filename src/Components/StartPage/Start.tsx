@@ -1,19 +1,12 @@
 import * as S from "./StartStyle";
-import Link from "next/Link";
 import * as C from "../index";
+import Link from "next/link";
 
 export const Start = () => {
   return (
     <S.container>
       <C.SettingPage></C.SettingPage>
-      <Link
-        href={"/GamePage"}
-        style={{
-          display: "flex",
-          width: "30vw",
-          height: "20vh",
-        }}
-      >
+      <Link href={"/Game"}>
         <S.startBtn></S.startBtn>
       </Link>
     </S.container>
