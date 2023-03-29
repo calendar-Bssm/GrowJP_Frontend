@@ -13,16 +13,16 @@ export const Setting = () => {
 
   function muteMe(e: HTMLAudioElement) {
     e.muted = true;
-    e.pause();
+    // e.pause();
   }
 
   function mutePage() {
     document.querySelectorAll("audio").forEach((elem) => muteMe(elem));
   }
 
-  function playMe(e: any) {
+  function playMe(e: HTMLAudioElement) {
     e.muted = false;
-    e.play();
+    // e.play();
   }
 
   function playPage() {
@@ -80,7 +80,7 @@ export const Setting = () => {
             showCredits.current.style.display = "none";
             closeCredits.current.style.display = "flex";
             credits.current.style.display = "flex";
-            playPage();
+            closeSetting.current.style.display = "none";
           }}
         ></S.settingBtn>
         <S.settingBtn
@@ -96,6 +96,7 @@ export const Setting = () => {
               showCredits.current.style.display = "flex";
               credits.current.style.display = "none";
               closeCredits.current.style.display = "none";
+              closeSetting.current.style.display = "flex";
             }}
           ></S.toggleBtn>
           <h2 style={{ fontSize: "8vw", margin: "0" }}>Credits</h2>

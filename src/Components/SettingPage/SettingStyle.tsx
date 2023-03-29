@@ -36,6 +36,7 @@ export const toggleBtn = styled.button<{ background: string; display: string }>`
     transition-duration: 0.025s;
     transform: scale(1.2);
     opacity: 1;
+    cursor: pointer;
   }
 `;
 
@@ -61,6 +62,7 @@ export const settingBtn = styled.button<{
     transition-duration: 0.025s;
     transform: scale(1.2);
     opacity: 1;
+    cursor: pointer;
   }
 
   :active {
