@@ -13,7 +13,7 @@ export const Setting = () => {
 
   function muteMe(e: HTMLAudioElement) {
     e.muted = true;
-    // e.pause();
+    e.pause();
   }
 
   function mutePage() {
@@ -22,7 +22,7 @@ export const Setting = () => {
 
   function playMe(e: HTMLAudioElement) {
     e.muted = false;
-    // e.play();
+    e.play();
   }
 
   function playPage() {
