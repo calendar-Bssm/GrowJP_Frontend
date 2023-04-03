@@ -10,6 +10,11 @@ export const Game = () => {
   let [attObjPath, setAttObjPath] = useState<number>(-2.5);
   let lengthOfAtt = 0;
 
+  let [money, setMoney] = useState<number>(0);
+  let [jpLevel, setJpLevel] = useState<number>(1);
+  let [critLevel, setCritLevel] = useState<number>(1);
+  let [isAchieveOn, setIsAchieveOn] = useState<number>(1);
+
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min;
   }
@@ -35,21 +40,25 @@ export const Game = () => {
     );
     lengthOfAtt++;
     console.log(attObject.length);
-    if (attObject.length >= 100) {
-      setAttObject(attObject.slice(50, 100));
+    if (attObject.length >= 10) {
+      setAttObject((attObject.length = 9));
     }
   };
 
   return (
-    <S.Container onClick={mouseClick}>
+    <S.Container>
       <C.SettingPage></C.SettingPage>
-      <S.infoArea></S.infoArea>
-      <S.gameArea>
+      <S.infoArea>
+        <S.moneyDiv>{money}</S.moneyDiv>
+      </S.infoArea>
+      <S.gameArea onClick={mouseClick}>
         <S.player ref={player}></S.player>
         <S.playerClick ref={playerClick}></S.playerClick>
         <S.attLine>{attObject}</S.attLine>
       </S.gameArea>
-      <S.skillArea></S.skillArea>
+      <S.skillArea>
+        <S.AchieveBtn background={isAchieveOn}></S.AchieveBtn>
+      </S.skillArea>
     </S.Container>
   );
 };

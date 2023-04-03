@@ -13,13 +13,27 @@ export const infoArea = styled.div`
   display: flex;
   width: 80vw;
   height: 10vh;
-  background-color: aliceblue;
+`;
+
+export const moneyDiv = styled.div`
+  width: 15vw;
+  height: 10vh;
+  background: url("/images/utils/money.png");
+  background-position: center;
+  background-size: 15vw 10vh;
+  padding-left: 7vw;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  font-family: "Gaegu";
+  font-size: 24px;
+  color: black;
 `;
 
 export const gameArea = styled.div`
   display: flex;
   width: 80vw;
-  height: 70vh;
+  height: 65vh;
   position: relative;
 `;
 
@@ -109,7 +123,7 @@ const attAnimation = (attObjTop: number) => keyframes`
   0% {
     left: 0%;
     opacity: 1;
-    top: ${attObjTop}%;
+    top: ${attObjTop-3}vh;
   }
 
   /* 50% {
@@ -117,16 +131,16 @@ const attAnimation = (attObjTop: number) => keyframes`
     top: ${attObjTop}%;
   } */
 
-  99% {
-    left: 100%;
+  30% {
+    left: 20%;
     opacity: 1;
-    top: ${attObjTop}%;  
+    top: ${attObjTop*Math.floor(Math.random() * 6)-5}vh;
   }
 
   100% {
     left: 100%;
-    top: ${attObjTop}%;
-    opacity: 0;
+    top: ${(attObjTop+8)*-1}vh;
+    display: none;
   }
 `;
 
@@ -134,17 +148,46 @@ export const attObject = styled.div<{ jpLevel: number; attObjTop: number }>`
   position: absolute;
   width: 3.5vw;
   height: 5vh;
-  top: -2.5vh;
+  top: 10.5vh;
   background: url("/images/JP/1_1.png");
   background-size: 3.5vw 5vh;
   background-position: center;
   animation: ${(props) => attDefault(props.jpLevel)} 0.35s infinite,
-    ${(props) => attAnimation(props.attObjTop)} 2.5s forwards ease-in;
+    ${(props) => attAnimation(props.attObjTop)} 2s forwards ease-in;
 `;
 
 export const skillArea = styled.div`
   display: flex;
   width: 80vw;
-  height: 20vh;
-  background-color: white;
+  height: 25vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5vw;
+`;
+
+export const AchieveBtn = styled.button<{ background: number }>`
+  width: 10vw;
+  height: 10vw;
+  background: url(${(props) => props.background ? "/images/utils/Achieve_1.png" : "/images/utils/Achieve_2.png"});
+  background-position: center;
+  background-size: 10vw 10vw;
+  border: 4px solid gray;
+  border-radius: 7.5%;
+  transition-timing-function: ease-out;
+  transition-duration: 0.15s;
+  opacity: 0.5;
+
+  :hover {
+    transition-timing-function: ease-out;
+    transition-duration: 0.025s;
+    transform: scale(1.1);
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  :active {
+    opacity: 0.7;
+  }
 `;
