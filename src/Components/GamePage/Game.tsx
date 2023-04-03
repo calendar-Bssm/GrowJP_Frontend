@@ -31,17 +31,19 @@ export const Game = () => {
 
     setAttObject(
       attObject.concat(
-        <S.attObject
-          attObjTop={attObjPath}
-          jpLevel={1}
-          ref={createdAttObject}
-        ></S.attObject>
+        <>
+          <S.attObject
+            attObjTop={attObjPath}
+            jpLevel={jpLevel}
+            ref={createdAttObject}
+          ></S.attObject>
+        </>
       )
     );
     lengthOfAtt++;
-    console.log(attObject.length);
-    if (attObject.length >= 10) {
-      setAttObject((attObject.length = 9));
+    console.log(attObject);
+    if (attObject.length >= 100) {
+      setAttObject(attObject.slice(0, 0));
     }
   };
 
@@ -57,7 +59,8 @@ export const Game = () => {
         <S.attLine>{attObject}</S.attLine>
       </S.gameArea>
       <S.skillArea>
-        <S.AchieveBtn background={isAchieveOn}></S.AchieveBtn>
+        <S.achieveBtn background={isAchieveOn}></S.achieveBtn>
+        <S.upgradeBtn></S.upgradeBtn>
       </S.skillArea>
     </S.Container>
   );

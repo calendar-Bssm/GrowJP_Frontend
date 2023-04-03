@@ -161,13 +161,13 @@ export const skillArea = styled.div`
   width: 80vw;
   height: 25vh;
   display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: flex-start;
   gap: 5vw;
 `;
 
-export const AchieveBtn = styled.button<{ background: number }>`
+export const achieveBtn = styled.button<{ background: number }>`
   width: 10vw;
   height: 10vw;
   background: url(${(props) => props.background ? "/images/utils/Achieve_1.png" : "/images/utils/Achieve_2.png"});
@@ -190,4 +190,10 @@ export const AchieveBtn = styled.button<{ background: number }>`
   :active {
     opacity: 0.7;
   }
+`;
+
+export const upgradeBtn = styled(achieveBtn)`
+  background: url("./images/utils/Upgrade.png");
+  background-position: center;
+  background-size: 10vw 10vw;
 `;
