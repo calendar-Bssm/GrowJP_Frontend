@@ -123,7 +123,7 @@ const attAnimation = (attObjTop: number) => keyframes`
   0% {
     left: 0%;
     opacity: 1;
-    top: ${attObjTop-3}vh;
+    top: ${attObjTop - 3}vh;
   }
 
   /* 50% {
@@ -134,13 +134,29 @@ const attAnimation = (attObjTop: number) => keyframes`
   30% {
     left: 20%;
     opacity: 1;
-    top: ${attObjTop*Math.floor(Math.random() * 6)-5}vh;
+    top: ${attObjTop * Math.floor(Math.random() * 6) - 5}vh;
+    transform: rotate(15deg);
   }
 
-  100% {
+  95% {
+    transform: rotate(0deg);
     left: 100%;
-    top: ${(attObjTop+8)*-1}vh;
-    display: none;
+    top: ${(attObjTop + 8) * -1}vh;
+  }
+  96% {
+    background:  url("/images/JP/boom_1");
+  }
+  97% {
+    background:  url("/images/JP/boom_2");
+  }
+  98% {
+    background:  url("/images/JP/boom_3");
+  }
+  99% {
+    background:  url("/images/JP/boom_4");
+  }
+  100% {
+    background:  url("/images/JP/boom_4");
   }
 `;
 
@@ -153,7 +169,7 @@ export const attObject = styled.div<{ jpLevel: number; attObjTop: number }>`
   background-size: 3.5vw 5vh;
   background-position: center;
   animation: ${(props) => attDefault(props.jpLevel)} 0.35s infinite,
-    ${(props) => attAnimation(props.attObjTop)} 2s forwards ease-in;
+    ${(props) => attAnimation(props.attObjTop)} 1.5s forwards ease-in;
 `;
 
 export const skillArea = styled.div`
@@ -170,7 +186,10 @@ export const skillArea = styled.div`
 export const achieveBtn = styled.button<{ background: number }>`
   width: 10vw;
   height: 10vw;
-  background: url(${(props) => props.background ? "/images/utils/Achieve_1.png" : "/images/utils/Achieve_2.png"});
+  background: url(${(props) =>
+    props.background
+      ? "/images/utils/Achieve_1.png"
+      : "/images/utils/Achieve_2.png"});
   background-position: center;
   background-size: 10vw 10vw;
   border: 4px solid gray;
@@ -193,7 +212,10 @@ export const achieveBtn = styled.button<{ background: number }>`
 `;
 
 export const upgradeBtn = styled(achieveBtn)`
-  background: url("./images/utils/Upgrade.png");
+  background: url(${(props) =>
+    props.background
+      ? "./images/utils/Upgrade.png"
+      : "./images/utils/Upgrade.png"});
   background-position: center;
   background-size: 10vw 10vw;
 `;

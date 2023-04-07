@@ -27,17 +27,15 @@ export const Game = () => {
       player.current.style.opacity = "1";
     }, 50);
 
-    setAttObjPath(rand(-1.5, -3.5));
+    setAttObjPath(rand(2.5, -3.5));
 
     setAttObject(
       attObject.concat(
-        <>
-          <S.attObject
-            attObjTop={attObjPath}
-            jpLevel={jpLevel}
-            ref={createdAttObject}
-          ></S.attObject>
-        </>
+        <S.attObject
+          attObjTop={attObjPath}
+          jpLevel={jpLevel}
+          ref={createdAttObject}
+        ></S.attObject>
       )
     );
     lengthOfAtt++;
@@ -60,7 +58,7 @@ export const Game = () => {
       </S.gameArea>
       <S.skillArea>
         <S.achieveBtn background={isAchieveOn}></S.achieveBtn>
-        <S.upgradeBtn></S.upgradeBtn>
+        <S.upgradeBtn background={1}></S.upgradeBtn>
       </S.skillArea>
     </S.Container>
   );
