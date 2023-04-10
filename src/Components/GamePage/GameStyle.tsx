@@ -90,7 +90,6 @@ export const attLine = styled.div`
   height: 1px;
   top: 79.4%;
   right: 11vw;
-  background-color: blue;
 `;
 
 const attDefault = (jpLevel: number) => keyframes`
@@ -119,6 +118,39 @@ const attDefault = (jpLevel: number) => keyframes`
   }
 `;
 
+const treeDefault = keyframes`
+  0% {
+    width: 10vw;
+    height: 30vw;
+    background-size: 10vw 30vh;
+  }
+
+  50% {
+    width: 10vw;
+    height: 31vw;
+    background-size: 10vw 31vh;
+  }
+
+  100% {
+    width: 10vw;
+    height: 30vw;
+    background-size: 10vw 30vh;
+  }
+`;
+
+export const tree = styled.div<{ background: number }>`
+  width: 10vw;
+  height: 30vw;
+  background: url(/images/tree/${(props) => props.background}_1.png);
+  background-size: 10vw 30vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: -10%;
+  right: 4%;
+  animation: ${treeDefault} 1s infinite ease-in-out;
+`;
+
 const attAnimation = (attObjTop: number) => keyframes`
   0% {
     left: 0%;
@@ -137,30 +169,20 @@ const attAnimation = (attObjTop: number) => keyframes`
     transform: rotate(15deg);
   }
 
-  92% {
+  62% {
     transform: rotate(0deg);
     left: 100%;
     top: ${(attObjTop + 8) * -1}vh;
   }
-  94% {
-    background:  url(/images/JP/boom_1.png);
-    background-size: 3.5vw 5vh;
-    background-position: center;
-  }
-  96% {
-    background:  url(/images/JP/boom_2.png);
-    background-size: 3.5vw 5vh;
-    background-position: center;
-  } 
-  98% {
+  93% {
     background:  url(/images/JP/boom_3.png);
-    background-size: 3.5vw 5vh;
+    background-size: 7vw 10vh;
     background-position: center;
+    top: ${(attObjTop + 8) * -1}vh;
+    left: 100%;
   }
   100% {
-    background:  url(/images/JP/boom_4.png);
-    background-size: 3.5vw 5vh;
-    background-position: center;
+    opacity: 0;
   }
 `;
 
@@ -174,6 +196,7 @@ export const attObject = styled.div<{ jpLevel: number; attObjTop: number }>`
   background-position: center;
   animation: ${(props) => attDefault(props.jpLevel)} 0.35s infinite,
     ${(props) => attAnimation(props.attObjTop)} 1.5s forwards ease-in;
+  z-index: 1;
 `;
 
 export const skillArea = styled.div`

@@ -5,6 +5,7 @@ import React, { useRef, useState } from "react";
 export const Game = () => {
   let player = useRef<HTMLDivElement | any>();
   let playerClick = useRef<HTMLDivElement | any>();
+  let tree = useRef<HTMLDivElement | any>();
   let [attObject, setAttObject] = useState<HTMLElement | any>([]);
   let [attObjPath, setAttObjPath] = useState<number>(-2.5);
   let lengthOfAtt = 0;
@@ -13,6 +14,9 @@ export const Game = () => {
   let [jpLevel, setJpLevel] = useState<number>(1);
   let [critLevel, setCritLevel] = useState<number>(1);
   let [isAchieveOn, setIsAchieveOn] = useState<number>(1);
+  let [treeLevel, setTreeLevel] = useState<number>(1);
+
+  const addMoney = () => {};
 
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min;
@@ -25,6 +29,20 @@ export const Game = () => {
       playerClick.current.style.opacity = "0";
       player.current.style.opacity = "1";
     }, 50);
+    setTimeout(() => {
+      tree.current.style.transform = "scale(1.05)";
+      tree.current.style.background = `url(/images/tree/${treeLevel}_2.png)`;
+      tree.current.style.backgroundSize = "10vw 30vh";
+      tree.current.style.backgroundPosition = "center";
+      tree.current.style.backgroundRepeat = "no-repeat";
+    }, 1025);
+    setTimeout(() => {
+      tree.current.style.transform = "scale(1)";
+      tree.current.style.background = `url(/images/tree/${treeLevel}_1.png)`;
+      tree.current.style.backgroundSize = "10vw 30vh";
+      tree.current.style.backgroundPosition = "center";
+      tree.current.style.backgroundRepeat = "no-repeat";
+    }, 1100);
 
     setAttObjPath(rand(2.5, -3.5));
 
@@ -36,6 +54,7 @@ export const Game = () => {
     // if (attObject.length >= 100) {
     //   setAttObject(attObject.slice(0, 100));
     // }
+    console.log(attObject.length);
   };
 
   return (
@@ -48,6 +67,7 @@ export const Game = () => {
         <S.player ref={player}></S.player>
         <S.playerClick ref={playerClick}></S.playerClick>
         <S.attLine>{attObject}</S.attLine>
+        <S.tree ref={tree} background={treeLevel}></S.tree>
       </S.gameArea>
       <S.skillArea>
         <S.achieveBtn background={isAchieveOn}></S.achieveBtn>

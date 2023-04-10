@@ -6,7 +6,7 @@ export const Start = () => {
   return (
     <S.container>
       <C.SettingPage></C.SettingPage>
-      <Link href={"/Game"}>
+      <Link href={"/game"}>
         <S.startBtn></S.startBtn>
       </Link>
     </S.container>
