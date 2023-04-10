@@ -175,7 +175,7 @@ const attAnimation = (attObjTop: number) => keyframes`
     top: ${(attObjTop + 8) * -1}vh;
   }
   93% {
-    background:  url(/images/JP/boom_3.png);
+    background:  url(/images/JP/boom.png);
     background-size: 7vw 10vh;
     background-position: center;
     top: ${(attObjTop + 8) * -1}vh;
