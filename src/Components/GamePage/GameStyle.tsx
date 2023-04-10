@@ -138,25 +138,22 @@ const attAnimation = (attObjTop: number) => keyframes`
     transform: rotate(15deg);
   }
 
-  95% {
+  96% {
     transform: rotate(0deg);
     left: 100%;
     top: ${(attObjTop + 8) * -1}vh;
   }
-  96% {
-    background:  url("/images/JP/boom_1");
-  }
   97% {
-    background:  url("/images/JP/boom_2");
+    background:  url(/images/JP/boom_1.png);
   }
   98% {
-    background:  url("/images/JP/boom_3");
+    background:  url(/images/JP/boom_2.png);
   }
   99% {
-    background:  url("/images/JP/boom_4");
+    background:  url(/images/JP/boom_3.png);
   }
   100% {
-    background:  url("/images/JP/boom_4");
+    background:  url(/images/JP/boom_4.png);
   }
 `;
 
@@ -186,10 +183,7 @@ export const skillArea = styled.div`
 export const achieveBtn = styled.button<{ background: number }>`
   width: 10vw;
   height: 10vw;
-  background: url(${(props) =>
-    props.background
-      ? "/images/utils/Achieve_1.png"
-      : "/images/utils/Achieve_2.png"});
+  background: url(${(props) => props.background ? "/images/utils/Achieve_1.png" : "/images/utils/Achieve_2.png"});
   background-position: center;
   background-size: 10vw 10vw;
   border: 4px solid gray;
@@ -212,10 +206,7 @@ export const achieveBtn = styled.button<{ background: number }>`
 `;
 
 export const upgradeBtn = styled(achieveBtn)`
-  background: url(${(props) =>
-    props.background
-      ? "./images/utils/Upgrade.png"
-      : "./images/utils/Upgrade.png"});
+  background: url(${(props) => props.background ? "./images/utils/Upgrade.png" : "./images/utils/Upgrade.png"});
   background-position: center;
   background-size: 10vw 10vw;
 `;
