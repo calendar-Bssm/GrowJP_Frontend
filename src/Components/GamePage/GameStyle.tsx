@@ -133,27 +133,34 @@ const attAnimation = (attObjTop: number) => keyframes`
 
   30% {
     left: 20%;
-    opacity: 1;
     top: ${attObjTop * Math.floor(Math.random() * 6) - 5}vh;
     transform: rotate(15deg);
   }
 
-  96% {
+  92% {
     transform: rotate(0deg);
     left: 100%;
     top: ${(attObjTop + 8) * -1}vh;
   }
-  97% {
+  94% {
     background:  url(/images/JP/boom_1.png);
+    background-size: 3.5vw 5vh;
+    background-position: center;
   }
-  98% {
+  96% {
     background:  url(/images/JP/boom_2.png);
-  }
-  99% {
+    background-size: 3.5vw 5vh;
+    background-position: center;
+  } 
+  98% {
     background:  url(/images/JP/boom_3.png);
+    background-size: 3.5vw 5vh;
+    background-position: center;
   }
   100% {
     background:  url(/images/JP/boom_4.png);
+    background-size: 3.5vw 5vh;
+    background-position: center;
   }
 `;
 
@@ -183,7 +190,10 @@ export const skillArea = styled.div`
 export const achieveBtn = styled.button<{ background: number }>`
   width: 10vw;
   height: 10vw;
-  background: url(${(props) => props.background ? "/images/utils/Achieve_1.png" : "/images/utils/Achieve_2.png"});
+  background: url(${(props) =>
+    props.background
+      ? "/images/utils/Achieve_1.png"
+      : "/images/utils/Achieve_2.png"});
   background-position: center;
   background-size: 10vw 10vw;
   border: 4px solid gray;
@@ -206,7 +216,10 @@ export const achieveBtn = styled.button<{ background: number }>`
 `;
 
 export const upgradeBtn = styled(achieveBtn)`
-  background: url(${(props) => props.background ? "./images/utils/Upgrade.png" : "./images/utils/Upgrade.png"});
+  background: url(${(props) =>
+    props.background
+      ? "./images/utils/Upgrade.png"
+      : "./images/utils/Upgrade.png"});
   background-position: center;
   background-size: 10vw 10vw;
 `;

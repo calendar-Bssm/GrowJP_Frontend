@@ -5,7 +5,6 @@ import React, { useRef, useState } from "react";
 export const Game = () => {
   let player = useRef<HTMLDivElement | any>();
   let playerClick = useRef<HTMLDivElement | any>();
-  let createdAttObject = useRef<HTMLDivElement | any>();
   let [attObject, setAttObject] = useState<HTMLElement | any>([]);
   let [attObjPath, setAttObjPath] = useState<number>(-2.5);
   let lengthOfAtt = 0;
@@ -31,18 +30,12 @@ export const Game = () => {
 
     setAttObject(
       attObject.concat(
-        <S.attObject
-          attObjTop={attObjPath}
-          jpLevel={jpLevel}
-          ref={createdAttObject}
-        ></S.attObject>
+        <S.attObject attObjTop={attObjPath} jpLevel={jpLevel}></S.attObject>
       )
     );
-    lengthOfAtt++;
-    console.log(attObject);
-    if (attObject.length >= 100) {
-      setAttObject(attObject.slice(0, 0));
-    }
+    // if (attObject.length >= 100) {
+    //   setAttObject(attObject.slice(0, 100));
+    // }
   };
 
   return (
