@@ -16,8 +16,6 @@ export const Game = () => {
   let [isAchieveOn, setIsAchieveOn] = useState<number>(1);
   let [treeLevel, setTreeLevel] = useState<number>(1);
 
-  const addMoney = () => {};
-
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min;
   }
