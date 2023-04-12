@@ -210,13 +210,10 @@ export const skillArea = styled.div`
   gap: 5vw;
 `;
 
-export const achieveBtn = styled.button<{ background: number }>`
+export const achieveBtn = styled.button<{ background: boolean }>`
   width: 10vw;
   height: 10vw;
-  background: url(${(props) =>
-    props.background
-      ? "/images/utils/Achieve_1.png"
-      : "/images/utils/Achieve_2.png"});
+  background: url(${(props) => props.background ? "/images/utils/Achieve_2.png" : "/images/utils/Achieve_1.png"});
   background-position: center;
   background-size: 10vw 10vw;
   border: 4px solid gray;
@@ -239,10 +236,11 @@ export const achieveBtn = styled.button<{ background: number }>`
 `;
 
 export const upgradeBtn = styled(achieveBtn)`
-  background: url(${(props) =>
-    props.background
-      ? "./images/utils/Upgrade.png"
-      : "./images/utils/Upgrade.png"});
+  background: url(${(props) => props.background ? "./images/utils/Upgrade.png" : "./images/utils/Upgrade.png"});
   background-position: center;
   background-size: 10vw 10vw;
+`;
+
+export const upgradePage = styled.div`
+
 `;

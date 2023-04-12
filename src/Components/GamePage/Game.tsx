@@ -13,7 +13,8 @@ export const Game = () => {
   let [money, setMoney] = useState<number>(0);
   let [jpLevel, setJpLevel] = useState<number>(1);
   let [critLevel, setCritLevel] = useState<number>(1);
-  let [isAchieveOn, setIsAchieveOn] = useState<number>(1);
+  let [isAchieveOn, setIsAchieveOn] = useState<boolean>(false);
+  let [isUpgradeOn, setIsUpgradeOn] = useState<boolean>(false);
   let [treeLevel, setTreeLevel] = useState<number>(1);
 
   function rand(min: number, max: number) {
@@ -69,7 +70,7 @@ export const Game = () => {
       </S.gameArea>
       <S.skillArea>
         <S.achieveBtn background={isAchieveOn}></S.achieveBtn>
-        <S.upgradeBtn background={1}></S.upgradeBtn>
+        <S.upgradeBtn background={isUpgradeOn}></S.upgradeBtn>
       </S.skillArea>
     </S.Container>
   );
