@@ -11,22 +11,22 @@ export const Setting = () => {
   let closeCredits = useRef<HTMLButtonElement | any>(null);
   let credits = useRef<HTMLDivElement | any>(null);
 
-  function muteMe(e: HTMLAudioElement) {
+  function muteSong(e: HTMLAudioElement) {
     e.muted = true;
     e.pause();
   }
 
   function mutePage() {
-    document.querySelectorAll("audio").forEach((elem) => muteMe(elem));
+    document.querySelectorAll("audio").forEach((elem) => muteSong(elem));
   }
 
-  function playMe(e: HTMLAudioElement) {
+  function playSong(e: HTMLAudioElement) {
     e.muted = false;
     e.play();
   }
 
   function playPage() {
-    document.querySelectorAll("audio").forEach((elem) => playMe(elem));
+    document.querySelectorAll("audio").forEach((elem) => playSong(elem));
   }
 
   return (
