@@ -34,14 +34,14 @@ export const Game = () => {
       tree.current.style.backgroundSize = "10vw 30vh";
       tree.current.style.backgroundPosition = "center";
       tree.current.style.backgroundRepeat = "no-repeat";
-    }, 1025);
+    }, 950);
     setTimeout(() => {
       tree.current.style.transform = "scale(1)";
       tree.current.style.background = `url(/images/tree/${treeLevel}_1.png)`;
       tree.current.style.backgroundSize = "10vw 30vh";
       tree.current.style.backgroundPosition = "center";
       tree.current.style.backgroundRepeat = "no-repeat";
-    }, 1100);
+    }, 1000);
 
     setAttObjPath(rand(2.5, -3.5));
 
@@ -58,6 +58,7 @@ export const Game = () => {
 
   return (
     <S.Container>
+      <S.achievePage></S.achievePage>
       <C.SettingPage></C.SettingPage>
       <S.infoArea>
         <S.moneyDiv>{money}</S.moneyDiv>

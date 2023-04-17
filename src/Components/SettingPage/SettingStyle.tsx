@@ -10,7 +10,6 @@ export const setContainer = styled.div`
   position: absolute;
   top: 0%;
   left: 0%;
-  background-color: black;
   background: rgba(255, 255, 255, 0.75);
   z-index: 1;
 `;
