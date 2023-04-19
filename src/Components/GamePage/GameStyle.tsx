@@ -146,7 +146,7 @@ export const tree = styled.div<{ background: number }>`
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
-  bottom: -10%;
+  bottom: -3vw;
   right: 4%;
   animation: ${treeDefault} 1s infinite ease-in-out;
 `;
@@ -209,7 +209,6 @@ export const skillArea = styled.div`
   align-items: flex-start;
   gap: 5vw;
 `;
-
 
 export const toggleBtn = styled.button<{ background: string; display: string }>`
   width: 5vw;
@@ -275,12 +274,14 @@ export const achievePage = styled.div`
   z-index: 1;
 `;
 
+export const backBtn = styled.button`
+  position: absolute;
+`;
+
 export const upgradeBtn = styled(achieveBtn)`
-  background: url(${(props) => props.background ? "./images/utils/Upgrade.png" : "./images/utils/Upgrade.png"});
+  background: url(${(props) => props.background ? "./images/utils/Upgrade_2.png" : "./images/utils/Upgrade_1.png"});
   background-position: center;
   background-size: 10vw 10vw;
 `;
 
-export const upgradePage = styled.div`
-
-`;
+export const upgradePage = styled.div``;

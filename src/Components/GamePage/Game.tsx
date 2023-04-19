@@ -3,13 +3,14 @@ import * as C from "../index";
 import React, { useRef, useState } from "react";
 
 export const Game = () => {
-  let player = useRef<HTMLDivElement | any>();
-  let playerClick = useRef<HTMLDivElement | any>();
-  let tree = useRef<HTMLDivElement | any>();
-  let [attObject, setAttObject] = useState<HTMLElement | any>([]);
-  let [attObjPath, setAttObjPath] = useState<number>(-2.5);
-  let lengthOfAtt = 0;
+  const player = useRef<HTMLDivElement>(null);
+  const playerClick = useRef<HTMLDivElement>(null);
+  const tree = useRef<HTMLDivElement>(null);
+  const upgradePage = useRef<HTMLDivElement>(null);
+  const achievePage = useRef<HTMLDivElement>(null);
 
+  let [attObject, setAttObject] = useState<HTMLDivElement[]>([]);
+  let [attObjPath, setAttObjPath] = useState<number>(-2.5);
   let [money, setMoney] = useState<number>(0);
   let [jpLevel, setJpLevel] = useState<number>(1);
   let [critLevel, setCritLevel] = useState<number>(1);
@@ -47,7 +48,7 @@ export const Game = () => {
 
     setAttObject(
       attObject.concat(
-        <S.attObject attObjTop={attObjPath} jpLevel={jpLevel}></S.attObject>
+        <S.attObject attObjTop={attObjPath} jpLevel={jpLevel} />
       )
     );
     // if (attObject.length >= 100) {
