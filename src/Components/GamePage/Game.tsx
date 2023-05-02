@@ -9,7 +9,7 @@ export const Game = () => {
   const upgradePage = useRef<HTMLDivElement>(null);
   const achievePage = useRef<HTMLDivElement>(null);
 
-  let [attObject, setAttObject] = useState<HTMLDivElement[]>([]);
+  let [attObject, setAttObject] = useState<HTMLDivElement[] | any>([]);
   let [attObjPath, setAttObjPath] = useState<number>(-2.5);
   let [money, setMoney] = useState<number>(0);
   let [jpLevel, setJpLevel] = useState<number>(1);
@@ -17,6 +17,7 @@ export const Game = () => {
   let [isAchieveOn, setIsAchieveOn] = useState<boolean>(false);
   let [isUpgradeOn, setIsUpgradeOn] = useState<boolean>(false);
   let [treeLevel, setTreeLevel] = useState<number>(1);
+
 
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min;
@@ -47,9 +48,7 @@ export const Game = () => {
     setAttObjPath(rand(2.5, -3.5));
 
     setAttObject(
-      attObject.concat(
-        <S.attObject attObjTop={attObjPath} jpLevel={jpLevel} />
-      )
+      attObject.concat(<S.attObject attObjTop={attObjPath} jpLevel={jpLevel} />)
     );
     // if (attObject.length >= 100) {
     //   setAttObject(attObject.slice(0, 100));
@@ -59,7 +58,28 @@ export const Game = () => {
 
   return (
     <S.Container>
-      <S.achievePage></S.achievePage>
+      <S.achievePage>
+        <S.toggleBtn
+          display={"flex"}
+          ref={showSetting}
+          background={"/images/utils/settingBtn.png"}
+          onClick={() => {
+            showSetting.current.style.display = "none";
+            container.current.style.display = "flex";
+            closeSetting.current.style.display = "flex";
+          }}
+        ></S.toggleBtn>
+        <S.toggleBtn
+          display={"none"}
+          ref={closeSetting}
+          background={"/images/utils/xBtn.png"}
+          onClick={() => {
+            showSetting.current.style.display = "flex";
+            container.current.style.display = "none";
+            closeSetting.current.style.display = "none";
+          }}
+        ></S.toggleBtn>
+      </S.achievePage>
       <C.SettingPage></C.SettingPage>
       <S.infoArea>
         <S.moneyDiv>{money}</S.moneyDiv>
