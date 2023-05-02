@@ -17,7 +17,9 @@ export const Game = () => {
   let [isAchieveOn, setIsAchieveOn] = useState<boolean>(false);
   let [isUpgradeOn, setIsUpgradeOn] = useState<boolean>(false);
   let [treeLevel, setTreeLevel] = useState<number>(1);
-
+  let showSetting = useRef<HTMLButtonElement | any>(null);
+  let closeSetting = useRef<HTMLButtonElement | any>(null);
+  let achieveContainer = useRef<HTMLDivElement | any>(null);
 
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min;
@@ -58,24 +60,14 @@ export const Game = () => {
 
   return (
     <S.Container>
-      <S.achievePage>
-        <S.toggleBtn
-          display={"flex"}
-          ref={showSetting}
-          background={"/images/utils/settingBtn.png"}
-          onClick={() => {
-            showSetting.current.style.display = "none";
-            container.current.style.display = "flex";
-            closeSetting.current.style.display = "flex";
-          }}
-        ></S.toggleBtn>
+      <S.achievePage ref={achieveContainer}>
         <S.toggleBtn
           display={"none"}
           ref={closeSetting}
           background={"/images/utils/xBtn.png"}
           onClick={() => {
             showSetting.current.style.display = "flex";
-            container.current.style.display = "none";
+            achieveContainer.current.style.display = "none";
             closeSetting.current.style.display = "none";
           }}
         ></S.toggleBtn>
@@ -91,7 +83,15 @@ export const Game = () => {
         <S.tree ref={tree} background={treeLevel}></S.tree>
       </S.gameArea>
       <S.skillArea>
-        <S.achieveBtn background={isAchieveOn}></S.achieveBtn>
+
+        {/* 버튼 겹치는거 수정해야됨 */}
+        <S.achieveBtn
+          background={isAchieveOn}
+          onClick={() => {
+            closeSetting.current.style.display = "flex";
+            achieveContainer.current.style.display = "flex";
+          }}
+        ></S.achieveBtn>
         <S.upgradeBtn background={isUpgradeOn}></S.upgradeBtn>
       </S.skillArea>
     </S.Container>
