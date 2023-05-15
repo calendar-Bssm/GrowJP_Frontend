@@ -271,7 +271,7 @@ export const achievePage = styled.div`
   top: 0%;
   left: 0%;
   background: rgba(255, 255, 255, 0.75);
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const backBtn = styled.button`
@@ -284,4 +284,15 @@ export const upgradeBtn = styled(achieveBtn)`
   background-size: 10vw 10vw;
 `;
 
-export const upgradePage = styled.div``;
+export const upgradePage = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background: rgba(255, 255, 255, 0.75);
+  z-index: 3;`;

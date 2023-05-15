@@ -6,8 +6,8 @@ export const Game = () => {
   const player = useRef<HTMLDivElement>(null);
   const playerClick = useRef<HTMLDivElement>(null);
   const tree = useRef<HTMLDivElement>(null);
-  const upgradePage = useRef<HTMLDivElement>(null);
-  const achievePage = useRef<HTMLDivElement>(null);
+  let achieveContainer = useRef<HTMLDivElement | any>(null);
+  let upgradeContainer = useRef<HTMLDivElement | any>(null);
 
   let [attObject, setAttObject] = useState<HTMLDivElement[] | any>([]);
   let [attObjPath, setAttObjPath] = useState<number>(-2.5);
@@ -17,9 +17,9 @@ export const Game = () => {
   let [isAchieveOn, setIsAchieveOn] = useState<boolean>(false);
   let [isUpgradeOn, setIsUpgradeOn] = useState<boolean>(false);
   let [treeLevel, setTreeLevel] = useState<number>(1);
-  let showSetting = useRef<HTMLButtonElement | any>(null);
   let closeSetting = useRef<HTMLButtonElement | any>(null);
-  let achieveContainer = useRef<HTMLDivElement | any>(null);
+  let closeAchieve = useRef<HTMLButtonElement | any>(null);
+  let closeUpgrade = useRef<HTMLButtonElement | any>(null);
 
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min;
@@ -52,6 +52,7 @@ export const Game = () => {
     setAttObject(
       attObject.concat(<S.attObject attObjTop={attObjPath} jpLevel={jpLevel} />)
     );
+
     // if (attObject.length >= 100) {
     //   setAttObject(attObject.slice(0, 100));
     // }
@@ -63,15 +64,25 @@ export const Game = () => {
       <S.achievePage ref={achieveContainer}>
         <S.toggleBtn
           display={"none"}
-          ref={closeSetting}
+          ref={closeAchieve}
           background={"/images/utils/xBtn.png"}
           onClick={() => {
-            showSetting.current.style.display = "flex";
             achieveContainer.current.style.display = "none";
-            closeSetting.current.style.display = "none";
+            closeAchieve.current.style.display = "none";
           }}
         ></S.toggleBtn>
       </S.achievePage>
+      <S.upgradePage ref={upgradeContainer}>
+        <S.toggleBtn
+          display={"none"}
+          ref={closeUpgrade}
+          background={"/images/utils/xBtn.png"}
+          onClick={() => {
+            upgradeContainer.current.style.display = "none";
+            closeUpgrade.current.style.display = "none";
+          }}
+        ></S.toggleBtn>
+      </S.upgradePage>
       <C.SettingPage></C.SettingPage>
       <S.infoArea>
         <S.moneyDiv>{money}</S.moneyDiv>
@@ -83,16 +94,20 @@ export const Game = () => {
         <S.tree ref={tree} background={treeLevel}></S.tree>
       </S.gameArea>
       <S.skillArea>
-
-        {/* 버튼 겹치는거 수정해야됨 */}
         <S.achieveBtn
           background={isAchieveOn}
           onClick={() => {
-            closeSetting.current.style.display = "flex";
+            closeAchieve.current.style.display = "flex";
             achieveContainer.current.style.display = "flex";
           }}
         ></S.achieveBtn>
-        <S.upgradeBtn background={isUpgradeOn}></S.upgradeBtn>
+        <S.upgradeBtn
+          background={isUpgradeOn}
+          onClick={() => {
+            closeUpgrade.current.style.display = "flex";
+            upgradeContainer.current.style.display = "flex";
+          }}
+        ></S.upgradeBtn>
       </S.skillArea>
     </S.Container>
   );
