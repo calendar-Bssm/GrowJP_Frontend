@@ -52,11 +52,14 @@ export const Game = () => {
     setAttObject(
       attObject.concat(<S.attObject attObjTop={attObjPath} jpLevel={jpLevel} />)
     );
+    setAttObject(
+      attObject.concat(<S.attObject attObjTop={attObjPath} jpLevel={jpLevel} />)
+    );
 
     // if (attObject.length >= 100) {
     //   setAttObject(attObject.slice(0, 100));
     // }
-    console.log(attObject.length);
+    console.log(attObject.length, attObject);
   };
 
   return (

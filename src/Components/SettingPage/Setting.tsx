@@ -103,7 +103,6 @@ export const Setting = () => {
           <p style={{ fontSize: "4vw" }}>
             Server & DataBase : 마현우
             <br /> Design & Page : 김준경
-            <br /> Design : 이희성
             <br />
           </p>
         </S.creditDesc>
